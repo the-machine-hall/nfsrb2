@@ -1,0 +1,41 @@
+# machine-name.conf
+# "openbsd" or "netbsd"
+_OS="openbsd"
+
+_HOSTNAME="es45"
+_DOMAIN="domain.tld"
+# Determined automatically via DNS if empty
+#_IP_ADDRESS=""
+# Specify the swap file size in MiB (number only!)
+_SWAP_FILE_SIZE=1024
+
+_DNS_SERVER_ADDRESS="172.16.0.1"
+_GATEWAY_ADDRESS="172.16.0.1"
+_NFS_SERVER_ADDRESS="172.16.0.2"
+
+# This mirror still has older OpenBSD releases available for download
+_DOWNLOAD_MIRROR="https://ftp.eu.openbsd.org/pub/OpenBSD/"
+# Use either dotted version number (e.g. "6.0" or "7.0.1") or
+# "snapshots" (OpenBSD only)
+_OS_VERSION="7.1"
+_PLATFORM="alpha"
+
+# Specify the path prefix where files should be downloaded to and root
+# file systems are built. The full path for this machine will be added
+# by nfsrb and look like this:
+#
+# "${_BASE_PATH_PREFIX}/${_OS}/${_OS_VERSION}/${_PLATFORM}/${_HOSTNAME}"
+_BASE_PATH_PREFIX="/srv/nfs"
+
+# OPTIONAL
+# Only specify sets additional to the default sets "base" and "etc" and
+# separate by " "
+_ADDITIONAL_SETS_TO_DOWNLOAD="man comp"
+
+# Specify the name of the desired kernel, e.g. "bsd", "bsd.mp", etc.
+# Basename only, as the containing directory is known to nfsrb
+_KERNEL_TO_USE="bsd.mp"
+
+# OPTIONAL
+# Additional files to download from the download base path.
+_ADDITIONAL_FILES_TO_DOWNLOAD="netboot"
